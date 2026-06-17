@@ -16,8 +16,6 @@ Built with **JavaScript**, **p5.js**, and **Matter.js**, this project explores p
 
 ![Mid Game](assets/Preview2.png)
 
-### End Game
-
 ![End Game](assets/Preview3.png)
 
 ---
