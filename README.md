@@ -152,4 +152,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ---
 
-Developed by **Devansh Singh**.
+Developed by **dslord**.
