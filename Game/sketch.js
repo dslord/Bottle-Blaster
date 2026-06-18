@@ -122,7 +122,7 @@ function draw() {
     text(balls, 45, 57);
     
     // Game Over
-    if (balls < 0 && blocks.length > 0) {
+    if (balls <= 0 && blocks.length > 0) {
         Matter.Body.setPosition(game_over.body, {x: windowWidth / 2, y: windowHeight / 2});
         game_over.display();
 
