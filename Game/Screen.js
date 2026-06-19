@@ -1,12 +1,12 @@
 class Screen {
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, img) {
         var options = {
             isStatic: true
         }
-        this.body = Bodies.rectangle(x, y, width, height, options);
+        this.body = Bodies.rectangle(x, y, width, height, img, options);
         this.width = width;
         this.height = height;
-        this.image = loadImage("sprites/gameover.png");
+        this.image = loadImage(img);
         World.add(world, this.body);
     }
     display() {

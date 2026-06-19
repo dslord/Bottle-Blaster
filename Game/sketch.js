@@ -8,12 +8,12 @@ var blocks = [];
 var stopper;
 var slingshot;
 var ball;
-var balls = 9;
+var balls = 10;
 var bg;
 
 var launched = false;
 
-var gameState = "onSling";
+var gameState = "play";
 
 function setup() {
     var canvas = createCanvas(windowWidth, windowHeight);
@@ -87,44 +87,18 @@ function setup() {
         block_x = 0;
     }
     
-    game_over = new Screen(-1000, -1000, windowWidth, windowHeight);
-    winscreen = new WinScreen(-1000, -1000, windowWidth, windowHeight);
+    game_over = new Screen(-1000, -1000, windowWidth, windowHeight, "../sprites/gameover.png");
+    winscreen = new Screen(-1000, -1000, windowWidth, windowHeight, "../sprites/youwing.png");
     slingShot = new Slingshot(ball.body, {x: windowWidth / 6 - 20, y: windowHeight - 600});
 
     bg = loadImage("sprites/screen.png");
 }
 
 function draw() {
-    image(bg, 0, 0, windowWidth, windowHeight);
-    Engine.update(engine);
-    strokeWeight(1);
-
-    ground0.display();
-    ground1.display();
-    ground2.display();
-
-    platform.display();
-    platform1.display();
-    platform2.display();
-    platform3.display();
-
-    for (var i = 0; i < blocks.length; i++) {
-        blocks[i].display();
-    }
-
-    slingShot.display();
-
-    ball.display();
-    bg_ball.display();
-
-    textSize(20);
-    fill("black");
-    text(balls, 45, 57);
-    
     // Game Over
     if (balls <= 0 && blocks.length > 0) {
         Matter.Body.setPosition(game_over.body, {x: windowWidth / 2, y: windowHeight / 2});
-        game_over.display();
+        game_over.display();  
 
         gameState = "end";
     }
@@ -137,27 +111,49 @@ function draw() {
         gameState = "end";
     }
 
-    if ((ball.body.speed < 0.3 || ball.body.position.y >= windowHeight) && launched) {
-        Matter.Body.setVelocity(ball.body, {x: 0, y: 0});
-        Matter.Body.setPosition(ball.body, {x: windowWidth / 6 - 20, y: windowHeight - 600});
+    if (gameState == "play") {
+        image(bg, 0, 0, windowWidth, windowHeight);
+        Engine.update(engine);
+        strokeWeight(1);
 
-        slingShot.attach(ball.body);
-        launched = false;
-    }
+        ground0.display();
+        ground1.display();
+        ground2.display();
 
-    for (var i = 0; i < blocks.length; i++) {
-        if (blocks[i].body.speed > 10) {
-            World.remove(world, blocks[i].body);
-            blocks.splice(i, 1);
+        platform.display();
+        platform1.display();
+        platform2.display();
+        platform3.display();
 
-            push();
-            tint(255, this.visibility);
-            this.visibility = this.visibility - 5;
-            pop();
+        for (var i = 0; i < blocks.length; i++) {
+            blocks[i].display();
         }
-    }
+
+        slingShot.display();
+
+        ball.display();
+        bg_ball.display();
+
+        textSize(20);
+        fill("black");
+        text(balls - 1, 45, 57);
+
+        if ((ball.body.speed < 0.3 || ball.body.position.y >= windowHeight) && launched) {
+            Matter.Body.setVelocity(ball.body, {x: 0, y: 0});
+            Matter.Body.setPosition(ball.body, {x: windowWidth / 6 - 20, y: windowHeight - 600});
+
+            slingShot.attach(ball.body);
+            launched = false;
+        }
+
+        for (var i = 0; i < blocks.length; i++) {
+            if (blocks[i].body.speed > 10) {
+                blocks.splice(i, 1);
+            }
+        }
     
-    drawSprites();
+        drawSprites();
+    }
 }
 
 function mouseDragged() {
@@ -165,7 +161,7 @@ function mouseDragged() {
 
     const slingX = windowWidth / 6 - 20;
     const slingY = windowHeight - 600;
-    const maxPull = 150;
+    const maxPull = 180;
         
     var dx = mouseX - slingX;
     var dy = mouseY - slingY;
