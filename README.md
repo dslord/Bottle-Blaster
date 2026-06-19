@@ -88,8 +88,7 @@ Bottle Blaster
 │   ├── Screen.js
 │   ├── sketch.js
 │   ├── Slingshot.js
-│   ├── Text.js
-│   └── WinScreen.js
+│   └── Text.js
 │
 ├── sprites
 │   ├── bottle.png
