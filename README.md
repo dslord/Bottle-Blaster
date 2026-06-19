@@ -74,24 +74,24 @@ Open `index.html` in your preferred web browser.
 ## Project Structure
 
 ```text
-├── assets/
+Bottle Blaster
+├── assets
 │   ├── Preview1.png
 │   ├── Preview2.png
 │   └── Preview3.png
 │
-├── Game/
+├── Game
 │   ├── Ball.js
 │   ├── Block.js
 │   ├── Ground.js
-│   ├── Line.js
 │   ├── Point.js
 │   ├── Screen.js
+│   ├── sketch.js
 │   ├── Slingshot.js
 │   ├── Text.js
-│   ├── WinScreen.js
-│   └── sketch.js
+│   └── WinScreen.js
 │
-├── sprites/
+├── sprites
 │   ├── bottle.png
 │   ├── game.png
 │   ├── gameover.png
@@ -101,7 +101,7 @@ Open `index.html` in your preferred web browser.
 │   ├── sling3.png
 │   └── youwin.png
 │
-├── src/
+├── src
 │   ├── matter.js
 │   ├── p5.dom.min.js
 │   ├── p5.js
@@ -110,8 +110,8 @@ Open `index.html` in your preferred web browser.
 │
 ├── index.html
 ├── style.css
-├── LICENSE
-└── README.md
+├── README.md
+└── LICENCE
 ```
 
 ---
