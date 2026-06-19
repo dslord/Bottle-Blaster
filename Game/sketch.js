@@ -87,11 +87,11 @@ function setup() {
         block_x = 0;
     }
     
-    game_over = new Screen(-1000, -1000, windowWidth, windowHeight, "../sprites/gameover.png");
-    winscreen = new Screen(-1000, -1000, windowWidth, windowHeight, "../sprites/youwing.png");
+    game_over = new Screen(-1000, -1000, windowWidth, windowHeight, "gameover.png");
+    winscreen = new Screen(-1000, -1000, windowWidth, windowHeight, "youwing.png");
     slingShot = new Slingshot(ball.body, {x: windowWidth / 6 - 20, y: windowHeight - 600});
 
-    bg = loadImage("sprites/screen.png");
+    bg = loadImage("./sprites/screen.png");
 }
 
 function draw() {
