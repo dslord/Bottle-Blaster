@@ -88,7 +88,7 @@ function setup() {
     }
     
     game_over = new Screen(-1000, -1000, windowWidth, windowHeight, "gameover.png");
-    winscreen = new Screen(-1000, -1000, windowWidth, windowHeight, "youwing.png");
+    winscreen = new Screen(-1000, -1000, windowWidth, windowHeight, "youwin.png");
     slingShot = new Slingshot(ball.body, {x: windowWidth / 6 - 20, y: windowHeight - 600});
 
     bg = loadImage("./sprites/screen.png");
