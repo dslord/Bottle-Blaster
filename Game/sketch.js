@@ -161,7 +161,7 @@ function mouseDragged() {
 
     const slingX = windowWidth / 6 - 20;
     const slingY = windowHeight - 600;
-    const maxPull = 180;
+    const maxPull = 150;
         
     var dx = mouseX - slingX;
     var dy = mouseY - slingY;
